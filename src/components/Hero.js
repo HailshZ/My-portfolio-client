@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, ExternalLink, ArrowRight } from 'lucide-react';
+import { Eye, ExternalLink, ArrowRight } from 'lucide-react';
 import '../styles/Hero.css';
 
 const Hero = ({ personalInfo }) => {
@@ -34,7 +34,7 @@ const Hero = ({ personalInfo }) => {
                   }
                 }}
               >
-                Download CV <Download size={20} />
+                View CV <Eye size={20} />
               </a>
             </div>
 

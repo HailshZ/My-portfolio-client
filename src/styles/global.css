@@ -27,6 +27,7 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-white);
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 .container {
@@ -179,7 +180,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Responsive Design */
+/* Improved Mobile Responsiveness */
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
@@ -187,6 +188,7 @@ body {
   
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
   
   .container {
@@ -195,6 +197,40 @@ body {
   
   .error-container h2 {
     font-size: 1.5rem;
+  }
+  
+  /* Improved button sizing for mobile */
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Better card padding for mobile */
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .card {
+    padding: 1rem;
   }
 }
 
@@ -328,5 +364,17 @@ button:focus {
   .card {
     box-shadow: none;
     border: 1px solid #ccc;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
   }
 }
