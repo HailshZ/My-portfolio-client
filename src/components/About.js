@@ -59,6 +59,7 @@ const About = ({ personalInfo }) => {
               <span className="skill-tag">PostgreSQL</span>
               <span className="skill-tag">JavaScript</span>
               <span className="skill-tag">Python</span>
+              <span className="skill-tag">GitHub</span>
               <span className="skill-tag">Cybersecurity</span>
               <span className="skill-tag">Machine Learning</span>
             </div>

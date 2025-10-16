@@ -3,13 +3,28 @@ import { Calendar, MapPin, Award } from 'lucide-react';
 import '../styles/Education.css';
 
 const Education = ({ education }) => {
+  // Define the priority order for institutions
+  const priorityOrder = {
+    'CPU Business and Information Technology College': 1,
+    'Information Network Security Administration (INSA)': 2,
+    'Satcom Institute of technology college': 3,
+    'Berhanena Selam Printing Technology College': 4
+  };
+
+  // Sort education by priority order
+  const sortedEducation = education ? [...education].sort((a, b) => {
+    const priorityA = priorityOrder[a.institution] || 999;
+    const priorityB = priorityOrder[b.institution] || 999;
+    return priorityA - priorityB;
+  }) : [];
+
   return (
     <section id="education" className="section education">
       <div className="container">
         <h2 className="section-title">Education & Certifications</h2>
         
         <div className="education-timeline">
-          {education?.map((edu, index) => (
+          {sortedEducation?.map((edu, index) => (
             <div key={edu.id || index} className="timeline-item">
               <div className="timeline-marker">
                 <Award size={20} />
