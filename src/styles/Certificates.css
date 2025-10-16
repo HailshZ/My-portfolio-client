@@ -32,10 +32,10 @@
 .certificate-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed from 'cover' to 'contain' for better mobile fit */
+  object-fit: contain; /* Changed from cover to contain to fit the entire image */
   cursor: pointer;
   transition: var(--transition);
-  background: white; /* Added background for better visibility */
+  background: white; /* Add background for better visibility */
 }
 
 .certificate-image:hover {
@@ -157,7 +157,7 @@
   }
   
   .view-certificate-btn {
-    opacity: 1;
+    opacity: 1; /* Always visible on mobile */
     background: rgba(0, 0, 0, 0.7);
     font-size: 0.8rem;
     padding: 0.6rem 1.2rem;

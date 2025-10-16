@@ -1,11 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import '../styles/Contact.css';
 
 const Contact = ({ personalInfo }) => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('https://my-portfolio-u2py.onrender.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage(result.message);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitMessage(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setSubmitMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -74,6 +119,8 @@ const Contact = ({ personalInfo }) => {
                   name="name" 
                   required 
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -85,6 +132,8 @@ const Contact = ({ personalInfo }) => {
                   name="email" 
                   required 
                   placeholder="your.email@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -96,6 +145,8 @@ const Contact = ({ personalInfo }) => {
                   name="subject" 
                   required 
                   placeholder="Subject of your message"
+                  value={formData.subject}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -107,11 +158,23 @@ const Contact = ({ personalInfo }) => {
                   rows="5" 
                   required 
                   placeholder="Your message here..."
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               
-              <button type="submit" className="btn btn-primary">
-                Send Message <Send size={18} />
+              {submitMessage && (
+                <div className={`submit-message ${submitMessage.includes('successfully') ? 'success' : 'error'}`}>
+                  {submitMessage}
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                className="btn btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'} <Send size={18} />
               </button>
             </form>
           </div>

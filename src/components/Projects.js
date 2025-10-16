@@ -73,6 +73,11 @@ const Projects = ({ projects }) => {
               A comprehensive web vulnerability scanner developed as part of cybersecurity training. 
               This tool helps identify potential security vulnerabilities in web applications.
             </p>
+            <div className="project-technologies" style={{justifyContent: 'center', marginBottom: '1.5rem'}}>
+              <span className="tech-tag">Python</span>
+              <span className="tech-tag">Flask</span>
+              <span className="tech-tag">Cybersecurity</span>
+            </div>
             <a 
               href="https://web-vulnerability-scanner0.vercel.app" 
               target="_blank" 

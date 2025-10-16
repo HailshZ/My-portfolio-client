@@ -6,6 +6,7 @@
   color: white;
   position: relative;
   overflow: hidden;
+  padding-top: 80px; /* Add padding to avoid header overlap */
 }
 
 .hero::before {
@@ -175,6 +176,10 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 70px; /* Adjust for mobile */
+  }
+
   .hero-title {
     font-size: 2rem;
   }
