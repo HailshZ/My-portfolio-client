@@ -63,7 +63,7 @@ const Contact = ({ personalInfo }) => {
           <div className="contact-info">
             <h3>Let's Connect</h3>
             <p>
-              I'm open to entry-level roles in cybersecurity and web development,
+              I'm open to roles in cybersecurity and web development,
               as well as freelance projects and security collaborations. Feel free
               to reach out, or just say hello!
             </p>

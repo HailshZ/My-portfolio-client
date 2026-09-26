@@ -12,7 +12,7 @@ const Hero = ({ personalInfo }) => {
           <div className="hero-text">
             <span className="hero-status">
               <span className="status-dot"></span>
-              Open to entry-level roles
+              Available for new opportunities
             </span>
 
             <h1 className="hero-title">
@@ -27,8 +27,8 @@ const Hero = ({ personalInfo }) => {
 
             <p className="hero-description">
               I build modern web applications with React, Node.js and PostgreSQL,
-              and I test them the way an attacker would. Currently a Cybersecurity &amp;
-              Digital Risk Management trainee at the AAU Qiyas Project.
+              and I test them the way an attacker would. Trained in Cybersecurity &amp;
+              Digital Risk Management through the AAU Qiyas Project.
             </p>
 
             <div className="hero-buttons">
@@ -61,8 +61,8 @@ const Hero = ({ personalInfo }) => {
                 <span>National CS Exit Exam</span>
               </div>
               <div className="hero-stat">
-                <strong>Blue + Red</strong>
-                <span>Team training, AAU Qiyas</span>
+                <strong>4</strong>
+                <span>Security &amp; technical certificates</span>
               </div>
             </div>
           </div>
