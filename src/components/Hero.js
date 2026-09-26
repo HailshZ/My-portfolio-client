@@ -1,6 +1,8 @@
 import React from 'react';
-import { Eye, ExternalLink, ArrowRight } from 'lucide-react';
+import { Eye, ExternalLink, ArrowRight, Code2, ShieldCheck } from 'lucide-react';
 import '../styles/Hero.css';
+
+const DEFAULT_PROFILE_PICTURE = '/images/profile.jpg';
 
 const Hero = ({ personalInfo }) => {
   return (
@@ -8,22 +10,33 @@ const Hero = ({ personalInfo }) => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
+            <span className="hero-status">
+              <span className="status-dot"></span>
+              Open to entry-level roles
+            </span>
+
             <h1 className="hero-title">
               Hi, I'm <span className="text-primary">Hailemariam Zeleke</span>
             </h1>
-            <h2 className="hero-subtitle">Full Stack Web Developer</h2>
+
+            <h2 className="hero-subtitle">
+              <span className="role role-dev">Full Stack Developer</span>
+              <span className="role-divider">&lt;/&gt;</span>
+              <span className="role role-sec">Ethical Hacker</span>
+            </h2>
+
             <p className="hero-description">
-              Passionate about creating modern, responsive web applications 
-              with cutting-edge technologies. Specializing in React, Node.js, 
-              and PostgreSQL.
+              I build modern web applications with React, Node.js and PostgreSQL,
+              and I test them the way an attacker would. Currently a Cybersecurity &amp;
+              Digital Risk Management trainee at the AAU Qiyas Project.
             </p>
-            
+
             <div className="hero-buttons">
               <a href="#projects" className="btn btn-primary">
                 View My Work <ArrowRight size={20} />
               </a>
-              <a 
-                href={personalInfo?.resume_url || '#contact'} 
+              <a
+                href={personalInfo?.resume_url || '#contact'}
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -38,33 +51,50 @@ const Hero = ({ personalInfo }) => {
               </a>
             </div>
 
-            <div className="hero-contacts">
-              {personalInfo?.email && (
-                <a href={`mailto:${personalInfo.email}`} className="contact-link">
-                  {personalInfo.email}
-                </a>
-              )}
-              {personalInfo?.phone && (
-                <a href={`tel:${personalInfo.phone}`} className="contact-link">
-                  {personalInfo.phone}
-                </a>
-              )}
+            <div className="hero-stats">
+              <div className="hero-stat">
+                <strong>3.99</strong>
+                <span>CGPA, B.Sc. Computer Science</span>
+              </div>
+              <div className="hero-stat">
+                <strong>81/100</strong>
+                <span>National CS Exit Exam</span>
+              </div>
+              <div className="hero-stat">
+                <strong>Blue + Red</strong>
+                <span>Team training, AAU Qiyas</span>
+              </div>
             </div>
           </div>
 
-          <div className="hero-image">
-            <div className="image-placeholder">
-              {personalInfo?.profile_picture_url ? (
-                <img 
-                  src={personalInfo.profile_picture_url} 
-                  alt="Hailemariam Zeleke"
-                  className="profile-image"
-                />
-              ) : (
-                <div className="profile-image">
-                  <span>HZ</span>
-                </div>
-              )}
+          <div className="hero-visual">
+            <div className="hero-avatar">
+              <img
+                src={personalInfo?.profile_picture_url || DEFAULT_PROFILE_PICTURE}
+                alt="Hailemariam Zeleke"
+                className="profile-image"
+              />
+              <span className="avatar-badge badge-dev">
+                <Code2 size={16} /> Build
+              </span>
+              <span className="avatar-badge badge-sec">
+                <ShieldCheck size={16} /> Secure
+              </span>
+            </div>
+
+            <div className="hero-terminal" aria-hidden="true">
+              <div className="terminal-bar">
+                <span></span><span></span><span></span>
+                <em>hazel@portfolio:~</em>
+              </div>
+              <pre className="terminal-body">
+<span className="t-prompt">$</span> whoami{'\n'}
+<span className="t-out">hailemariam_zeleke</span>{'\n'}
+<span className="t-prompt">$</span> cat roles.txt{'\n'}
+<span className="t-dev">[dev]</span> React · Node.js · Express · PostgreSQL{'\n'}
+<span className="t-sec">[sec]</span> Pentesting · SIEM · Incident Response{'\n'}
+<span className="t-prompt">$</span> <span className="t-cursor">_</span>
+              </pre>
             </div>
           </div>
         </div>
@@ -72,9 +102,9 @@ const Hero = ({ personalInfo }) => {
         {/* Social Links */}
         <div className="social-links">
           {personalInfo?.github_url && (
-            <a 
-              href={personalInfo.github_url} 
-              target="_blank" 
+            <a
+              href={personalInfo.github_url}
+              target="_blank"
               rel="noopener noreferrer"
               className="social-link"
             >
@@ -82,9 +112,9 @@ const Hero = ({ personalInfo }) => {
             </a>
           )}
           {personalInfo?.linkedin_url && (
-            <a 
-              href={personalInfo.linkedin_url} 
-              target="_blank" 
+            <a
+              href={personalInfo.linkedin_url}
+              target="_blank"
               rel="noopener noreferrer"
               className="social-link"
             >
@@ -92,13 +122,18 @@ const Hero = ({ personalInfo }) => {
             </a>
           )}
           {personalInfo?.telegram_username && (
-            <a 
-              href={`https://t.me/${personalInfo.telegram_username.replace('@', '')}`} 
-              target="_blank" 
+            <a
+              href={`https://t.me/${personalInfo.telegram_username.replace('@', '')}`}
+              target="_blank"
               rel="noopener noreferrer"
               className="social-link"
             >
               Telegram <ExternalLink size={16} />
+            </a>
+          )}
+          {personalInfo?.email && (
+            <a href={`mailto:${personalInfo.email}`} className="social-link">
+              Email <ExternalLink size={16} />
             </a>
           )}
         </div>

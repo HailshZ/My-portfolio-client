@@ -6,9 +6,8 @@ const Education = ({ education }) => {
   // Define the priority order for institutions
   const priorityOrder = {
     'CPU Business and Information Technology College': 1,
-    'Information Network Security Administration (INSA)': 2,
-    'Satcom Institute of technology college': 3,
-    'Berhanena Selam Printing Technology College': 4
+    'Satcom Institute of Technology': 2,
+    'Berhanena Selam Printing Technology College': 3
   };
 
   // Sort education by priority order
@@ -21,7 +20,7 @@ const Education = ({ education }) => {
   return (
     <section id="education" className="section education">
       <div className="container">
-        <h2 className="section-title">Education & Certifications</h2>
+        <h2 className="section-title">Education</h2>
         
         <div className="education-timeline">
           {sortedEducation?.map((edu, index) => (
@@ -40,13 +39,13 @@ const Education = ({ education }) => {
                 
                 <div className="education-details">
                   <div className="education-field">
-                    {edu.degree && `${edu.degree} in `}{edu.field_of_study}
+                    {[edu.degree, edu.field_of_study].filter(Boolean).join(' in ')}
                   </div>
                   
                   <div className="education-meta">
                     <div className="meta-item">
                       <Calendar size={16} />
-                      <span>{edu.start_date} - {edu.end_date}</span>
+                      <span>{[edu.start_date, edu.end_date].filter(Boolean).join(' - ')}</span>
                     </div>
                     
                     <div className="meta-item">

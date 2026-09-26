@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -19,6 +19,7 @@ const Header = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
     { name: 'Certificates', href: '#certificates' },
@@ -31,7 +32,7 @@ const Header = () => {
         <div className="nav-wrapper">
           {/* Logo */}
           <div className="logo">
-            <Code2 className="logo-icon" />
+            <Terminal className="logo-icon" />
             <span className="logo-text">Hailemariam</span>
           </div>
 

@@ -1,0 +1,51 @@
+.experience {
+  background: var(--bg-light);
+}
+
+.experience-timeline::before {
+  background: linear-gradient(var(--security-color), var(--primary-color));
+}
+
+.experience-timeline .timeline-item.track-security .timeline-marker {
+  background: var(--security-color);
+}
+
+.experience-timeline .timeline-item.track-security .meta-item svg {
+  color: var(--security-color);
+}
+
+.experience-org {
+  margin-top: 0.25rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.experience-type {
+  background: var(--bg-dark);
+  color: white;
+}
+
+.experience-timeline .track-security .experience-type {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+.experience-highlights {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.experience-highlights li::marker {
+  color: var(--security-color);
+}
+
+@media (max-width: 480px) {
+  .experience-highlights {
+    text-align: left;
+  }
+}

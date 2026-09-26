@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Eye } from 'lucide-react';
+import { ExternalLink, Eye, Award } from 'lucide-react';
 import '../styles/Certificates.css';
 
 const Certificates = ({ certificates }) => {
@@ -12,7 +12,7 @@ const Certificates = ({ certificates }) => {
   return (
     <section id="certificates" className="section certificates">
       <div className="container">
-        <h2 className="section-title">My Certificates</h2>
+        <h2 className="section-title">Certificates</h2>
         
         {certificates && certificates.length > 0 ? (
           <div className="certificates-grid">
@@ -37,8 +37,8 @@ const Certificates = ({ certificates }) => {
                     </>
                   ) : (
                     <div className="certificate-placeholder">
-                      <span>{certificate.title.charAt(0)}</span>
-                      <p>Certificate Image</p>
+                      <Award size={48} strokeWidth={1.5} />
+                      <p>{certificate.issuing_organization}</p>
                     </div>
                   )}
                 </div>
@@ -46,7 +46,13 @@ const Certificates = ({ certificates }) => {
                 <div className="certificate-content">
                   <h3 className="certificate-title">{certificate.title}</h3>
                   <p className="certificate-organization">{certificate.issuing_organization}</p>
-                  <p className="certificate-date">Issued: {certificate.issue_date}</p>
+                  {certificate.issue_date && (
+                    <p className="certificate-date">
+                      {/pending/i.test(certificate.issue_date)
+                        ? certificate.issue_date
+                        : `Issued: ${certificate.issue_date}`}
+                    </p>
+                  )}
                   
                   {certificate.credential_url && (
                     <a 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { API_BASE_URL } from '../utils/api';
 import '../styles/Contact.css';
 
 const Contact = ({ personalInfo }) => {
@@ -25,7 +26,7 @@ const Contact = ({ personalInfo }) => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('https://my-portfolio-u2py.onrender.com/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,8 +63,9 @@ const Contact = ({ personalInfo }) => {
           <div className="contact-info">
             <h3>Let's Connect</h3>
             <p>
-              I'm always interested in new opportunities and collaborations. 
-              Feel free to reach out if you'd like to work together or just say hello!
+              I'm open to entry-level roles in cybersecurity and web development,
+              as well as freelance projects and security collaborations. Feel free
+              to reach out, or just say hello!
             </p>
             
             <div className="contact-details">

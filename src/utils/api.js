@@ -3,7 +3,8 @@ import axios from 'axios';
 // IMPORTANT: Updated to the live Render URL. 
 // It will prioritize the REACT_APP_API_URL environment variable (used by Netlify), 
 // otherwise, it defaults to the live Render URL.
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://my-portfolio-u2py.onrender.com/api';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://my-portfolio-u2py.onrender.com/api';
+export const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, '');
 
 console.log('API Base URL:', API_BASE_URL);
 
@@ -82,6 +83,16 @@ export const portfolioAPI = {
     } catch (error) {
       console.error('Error fetching projects:', error);
       throw new Error(`Failed to fetch projects: ${error.message}`);
+    }
+  },
+
+  getExperience: async () => {
+    try {
+      const response = await api.get('/portfolio/experience');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching experience:', error);
+      throw new Error(`Failed to fetch experience: ${error.message}`);
     }
   },
 

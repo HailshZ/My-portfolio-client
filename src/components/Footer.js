@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Heart, ExternalLink } from 'lucide-react';
+import { Terminal, Heart, ExternalLink } from 'lucide-react';
 import '../styles/Footer.css';
 
 const Footer = ({ personalInfo }) => {
@@ -11,11 +11,12 @@ const Footer = ({ personalInfo }) => {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="logo">
-              <Code2 className="logo-icon" />
+              <Terminal className="logo-icon" />
               <span className="logo-text">Hailemariam Zeleke</span>
             </div>
             <p className="footer-description">
-              Full Stack Web Developer passionate about creating amazing digital experiences.
+              Full Stack Developer &amp; Ethical Hacker. I build web applications
+              and help keep them secure.
             </p>
           </div>
           
@@ -24,7 +25,10 @@ const Footer = ({ personalInfo }) => {
               <h4>Quick Links</h4>
               <a href="#home">Home</a>
               <a href="#about">About</a>
+              <a href="#skills">Skills</a>
+              <a href="#experience">Experience</a>
               <a href="#projects">Projects</a>
+              <a href="#certificates">Certificates</a>
               <a href="#contact">Contact</a>
             </div>
             

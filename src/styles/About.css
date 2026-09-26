@@ -132,6 +132,70 @@
   transform: translateY(-2px);
 }
 
+/* Development vs security tones */
+.highlight-card.tone-sec .highlight-icon {
+  background: var(--security-color);
+}
+
+.highlight-card.tone-sec:hover .highlight-icon {
+  background: #15803d;
+}
+
+.focus-group {
+  margin-bottom: 1.5rem;
+}
+
+.focus-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.focus-group.tone-dev .focus-label { color: var(--primary-color); }
+.focus-group.tone-sec .focus-label { color: var(--security-color); }
+
+.focus-group .skills-preview {
+  justify-content: flex-start;
+}
+
+.focus-group.tone-sec .skill-tag {
+  background: var(--security-color);
+}
+
+.focus-group.tone-sec .skill-tag:hover {
+  background: #15803d;
+}
+
+.about-languages {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.about-languages ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about-languages li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.about-languages li span {
+  color: var(--text-light);
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 968px) {
   .about-content {

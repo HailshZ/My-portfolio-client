@@ -4,7 +4,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -46,8 +46,8 @@
 }
 
 .project-image {
-  height: 200px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 180px;
+  background: linear-gradient(135deg, #1e3a8a 0%, var(--dev-color) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,12 +65,34 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-.image-placeholder {
+.project-card.category-security .project-image {
+  background:
+    linear-gradient(rgba(34, 197, 94, 0.08) 1px, transparent 1px) 0 0 / 100% 6px,
+    linear-gradient(135deg, var(--bg-dark) 0%, #14532d 100%);
+}
+
+.project-image .image-placeholder {
+  display: flex;
   color: white;
-  font-size: 3rem;
-  font-weight: 700;
   opacity: 0.9;
   z-index: 1;
+}
+
+.project-card.category-security .image-placeholder {
+  color: var(--security-light);
+}
+
+.project-category {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .project-content {
@@ -114,6 +136,20 @@
   transform: translateY(-1px);
 }
 
+.project-card.category-security .tech-tag {
+  background: var(--security-color);
+}
+
+.project-card.category-security .project-link {
+  color: var(--security-color);
+  border-color: var(--security-color);
+}
+
+.project-card.category-security .project-link:hover {
+  background: var(--security-color);
+  color: white;
+}
+
 .project-links {
   display: flex;
   gap: 1rem;
@@ -140,7 +176,9 @@
 }
 
 .special-project {
-  background: linear-gradient(135deg, var(--primary-color), #1e40af);
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(34, 197, 94, 0.25), transparent 60%),
+    var(--bg-dark);
   color: white;
   padding: 3rem;
   border-radius: var(--border-radius);
@@ -162,6 +200,28 @@
 .special-project-content {
   position: relative;
   z-index: 2;
+}
+
+.special-project-icon {
+  color: var(--security-light);
+  margin-bottom: 1rem;
+}
+
+.lab-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.lab-platform {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.08);
 }
 
 .special-project-content h3 {

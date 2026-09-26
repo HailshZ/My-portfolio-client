@@ -3,19 +3,19 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { portfolioAPI } from './utils/api';
-
-// The new Render URL is: https://my-portfolio-u2py.onrender.com
+import { portfolioAPI, API_ORIGIN } from './utils/api';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({});
   const [education, setEducation] = useState([]);
   const [skills, setSkills] = useState({});
+  const [experience, setExperience] = useState([]);
   const [projects, setProjects] = useState([]);
   const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ function App() {
         
         // Test backend connection first using the live Render URL
         try {
-          const testResponse = await fetch('https://my-portfolio-u2py.onrender.com/health');
+          const testResponse = await fetch(`${API_ORIGIN}/health`);
           if (!testResponse.ok) {
             throw new Error(`Backend server returned ${testResponse.status}`);
           }
@@ -54,6 +54,11 @@ function App() {
         const skillsRes = await portfolioAPI.getSkills();
         console.log('Skills loaded:', skillsRes.success);
         
+        console.log('Fetching experience...');
+        // Optional section: an older backend without this endpoint shouldn't break the page
+        const experienceRes = await portfolioAPI.getExperience().catch(() => ({ success: false }));
+        console.log('Experience loaded:', experienceRes.success);
+
         console.log('Fetching projects...');
         const projectsRes = await portfolioAPI.getProjects();
         console.log('Projects loaded:', projectsRes.success);
@@ -65,6 +70,7 @@ function App() {
         if (personalInfoRes.success) setPersonalInfo(personalInfoRes.data);
         if (educationRes.success) setEducation(educationRes.data);
         if (skillsRes.success) setSkills(skillsRes.data);
+        if (experienceRes.success) setExperience(experienceRes.data);
         if (projectsRes.success) setProjects(projectsRes.data);
         if (certificatesRes.success) setCertificates(certificatesRes.data);
 
@@ -134,7 +140,7 @@ function App() {
           Retry Connection
         </button>
         <button 
-          onClick={() => window.open('https://my-portfolio-u2py.onrender.com/health', '_blank')}
+          onClick={() => window.open(`${API_ORIGIN}/health`, '_blank')}
           style={{marginTop: '10px', marginLeft: '10px'}}
           className="btn btn-secondary"
         >
@@ -150,6 +156,7 @@ function App() {
       <Hero personalInfo={personalInfo} />
       <About personalInfo={personalInfo} />
       <Skills skills={skills} />
+      <Experience experience={experience} />
       <Projects projects={projects} />
       <Education education={education} />
       <Certificates certificates={certificates} />

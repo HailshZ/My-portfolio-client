@@ -4,7 +4,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
 }
 
@@ -106,6 +106,42 @@
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* Track colouring on the cards */
+.skill-category.card {
+  border-top: 4px solid var(--secondary-color);
+}
+
+.skill-category.card.track-dev {
+  border-top-color: var(--primary-color);
+}
+
+.skill-category.card.track-sec {
+  border-top-color: var(--security-color);
+}
+
+.skill-track-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.skill-category.track-dev .skill-track-label { color: var(--primary-color); }
+.skill-category.track-sec .skill-track-label { color: var(--security-color); }
+
+.skill-category.track-sec .proficiency-level {
+  background: linear-gradient(90deg, var(--security-color), var(--security-light));
+}
+
+.skill-category.track-sec .skill-category-title::after {
+  background: var(--security-color);
 }
 
 @media (max-width: 768px) {

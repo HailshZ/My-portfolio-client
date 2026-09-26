@@ -9,6 +9,12 @@
   --primary-dark: #1d4ed8;
   --secondary-color: #64748b;
   --accent-color: #f59e0b;
+  --dev-color: #3b82f6;
+  --security-color: #16a34a;
+  --security-light: #22c55e;
+  --bg-dark: #0b1120;
+  --bg-dark-2: #111a2e;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
   --text-dark: #1e293b;
   --text-light: #64748b;
   --bg-white: #ffffff;
@@ -123,6 +129,57 @@ body {
 
 .grid-3 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Track filter tabs (Skills, Projects) */
+.track-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.track-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: white;
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.track-tab:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.track-tab.active {
+  background: var(--text-dark);
+  border-color: var(--text-dark);
+  color: white;
+}
+
+.track-tab.track-dev.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.track-tab.track-sec.active {
+  background: var(--security-color);
+  border-color: var(--security-color);
+}
+
+.track-tab.track-sec:hover:not(.active) {
+  border-color: var(--security-color);
+  color: var(--security-color);
 }
 
 /* Loading and Error Styles */
