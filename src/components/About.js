@@ -41,8 +41,7 @@ const focusGroups = [
 
 const spokenLanguages = [
   { name: 'Amharic', level: 'Native' },
-  { name: 'English', level: 'Working proficiency' },
-  { name: 'Afaan Oromo', level: 'Proficient' }
+  { name: 'English', level: 'Working proficiency' }
 ];
 
 const About = ({ personalInfo }) => {
